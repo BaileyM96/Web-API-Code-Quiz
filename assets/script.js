@@ -1,9 +1,8 @@
-//Make a timed quiz on JavaScript fundamentals 
-// make objects for quiz questions with answers
+
 var quizQuestions = [
     {
         question: 'What is one way NOT to declare a variable?',
-        answers: ['var', 'for', 'const', 'let'],
+        answers: ['var', 'for', 'const', "let"], // fix bug to show all four answers
         answer: 'for'
     },
     {
@@ -20,18 +19,18 @@ var quizQuestions = [
 ]
 
 
-var startQuiz = document.querySelector('#start-quiz');
-var quizElement = document.querySelector('#quiz-questions');  // Needed to add variables for the quiz questions/choices
-var quizChoicesElement = document.querySelector('#quiz-choices');
-var timerElement = document.getElementById('#timer');
-var secondsRemaining = 10; //added this var so I can specify where to countdown from
+var startQuiz = document.querySelector('#start-quiz'); // *** Start Button ***//
+var quizElement = document.querySelector('#quiz-questions'); // Quiz questions
+var quizChoicesElement = document.querySelector('#quiz-choices'); //Quiz choices
+var timerElement = document.getElementById('timer');
+var secondsRemaining = 60; 
+var confirmEl = document.querySelector('#confirm');
 
 
-// can make a variable to randomizd questions
 var currentQuestionIndex = 0;
 
 
-//make a function called generate question
+
 function generatequestion() {
     quizElement.innerHTML = " "; 
     quizChoicesElement.innerHTML = " "; 
@@ -53,34 +52,41 @@ function generatequestion() {
         quizChoicesElement.append(liElement); 
     }
 
-    currentQuestionIndex++;
+    
 }
 
-// NEED TO FINISH THIS FUNCTION
+
 function checkAnswer(event) {
-    // event.target shows what you are clicking on in the box
-    if(quizQuestions[currentQuestionIndex].answer === event.target.textContent){
-        var h2Element = document.createElement('h2');
+    if(quizQuestions[currentQuestionIndex].answer == event.target.innerText){
+        console.log()
+        confirmEl.textContent = ' ';
         h2Element.textContent = 'Correct';
-        quizChoicesElement.append(h2Element);  
+        
+    } else {
+        confirmEl.textContent = ' ';
+        h2Element.textContent = 'Incorrect';  //uncaught
     }
+    currentQuestionIndex++;
+    generatequestion();
 }
 
-//Make start button with add event listener/check answer
-startQuiz.addEventListener('click', generatequestion);
-quizChoicesElement.addEventListener('click', checkAnswer)
 
-//Add a timer function to start a time interval once the start button is clicked
+
+startQuiz.addEventListener('click', generatequestion);
+quizChoicesElement.addEventListener('click', checkAnswer);
+
+
 function quizcountdown() {
     var countDown = setInterval(function() {
         secondsRemaining--;
-        timerElement = secondsRemaining + "seconds remaining."; // cant fix bug to show the count down on the page
 
         if(secondsRemaining === 0) {
             clearInterval(countDown);
+        } else {
+            timerElement.textContent = 'Seconds Left: ' + secondsRemaining;
         }
         console.log(secondsRemaining);
     }, 1000);
 }
 
-// Make sure to run the function to see if it works
+quizcountdown();

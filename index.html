@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
     <title>Code quiz</title>
 </head>
@@ -13,21 +16,35 @@
         <h1 id="code-quiz">Code Quiz</h1>
     </header>
 
-    <h2 id="timer" style="text-align:center;"></h2> 
+ <section class="timercount">
+    <h2 id="timer">Seconds Left: 60</h2> 
+ </section>
+
+ <section class="hide">
+    <button id="btn1">Button 1</button>
+    <button id="btn1">Button 2</button>
+    <button id="btn1">Button 3</button>
+    <button id="btn1">Button 4</button>
+ </section>
+
 
     <section class="quiz-container">
         <div id="quiz-questions">
 
         </div>
         <ul id="quiz-choices">
-
+            
         </ul>
-        <button id="start-quiz">Start</button>
+        <button id="start-quiz"><h2>Start</h2></button>
     </section>
+    <div id="confirm"></div>
+
+    
     
     
     <!-- Created  the header and the start quiz button -->
     <!-- Will add a retry button -->
     <script src="./assets/script.js"></script>
 </body>
+
 </html>
