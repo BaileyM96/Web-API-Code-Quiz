@@ -19,14 +19,17 @@ li {
     justify-content: center;
 }
 
-h2 {
+h2  {
     display: flex;
-    justify-content: end;
-    padding-top: 5px;
+    justify-content: center;
+    
 }
+
 
 #timer {
     padding-right: 30px;
+    display: flex;
+    justify-content: end;
 }
 
 .section {
@@ -34,11 +37,43 @@ h2 {
     justify-content: center;
 }
 
-button {
+#start-quiz {
     background-color: #1B263B;
     color: white;
     font-size: 18px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 24px;
+    text-align: center;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#Btn1 {
+    background-color: #1B263B;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+#Btn2 {
+    background-color: #1B263B;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+#Btn3 {
+    background-color: #1B263B;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+#Btn4 {
+    background-color: #1B263B;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
 
