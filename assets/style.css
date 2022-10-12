@@ -25,11 +25,17 @@ h2  {
     
 }
 
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
 
 #timer {
     padding-right: 30px;
     display: flex;
     justify-content: end;
+    font-weight: light;
 }
 
 .section {
@@ -37,43 +43,63 @@ h2  {
     justify-content: center;
 }
 
+.timer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hide {
+visibility: hidden;
+height: 0;
+}
+
 #start-quiz {
+    display: flex;
     background-color: #1B263B;
     color: white;
     font-size: 18px;
     border-radius: 5px;
     padding: 10px 24px;
-    text-align: center;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 #Btn1 {
     background-color: #1B263B;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 60px;
     font-size: 15px;
+    align-self: flex-start;
+    align-self: center;
+
 }
 #Btn2 {
     background-color: #1B263B;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 60px;
     font-size: 15px;
+    align-self: flex-start;
+    align-self: center;
 }
 #Btn3 {
     background-color: #1B263B;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 60px;
     font-size: 15px;
+    align-self: flex-start;
+    align-self: center;
 }
 #Btn4 {
     background-color: #1B263B;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 60px;
     font-size: 15px;
+    align-self: flex-start;
+    align-self: center;
 }
 
 

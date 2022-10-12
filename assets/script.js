@@ -2,7 +2,7 @@
 var quizQuestions = [
     {
         question: 'What is one way NOT to declare a variable?',
-        answers: ['var', 'set', 'const', "let"], // fix bug to show all four answers
+        answers: ['var', 'set', 'const', "let"], 
         answer: 'set'
     },
     {
@@ -15,34 +15,37 @@ var quizQuestions = [
         question: 'what is NOT the correct way to call  a popup box?',
         answers: ['confirm', 'prompt', 'window', 'alert'],
         answer: 'window'
+    }, 
+    {
+        question: 'What are the primitive types in JavaScript?',
+        answers: ['boolean', 'string', 'number', 'all of the above'],
+        answer: 'all of the above'
     }
 ]
 
 
 var startQuiz = document.querySelector('#start-quiz'); 
-startQuiz.setAttribute('class', 'hide');
-var quizElement = document.querySelector('#quiz-questions'); // Quiz questions
-var quizChoicesElement = document.querySelector('#quiz-choices'); //Quiz choices
-var timerElement = document.getElementById('timer'); //timer
+var quizElement = document.querySelector('#quiz-questions'); 
+var quizChoicesElement = document.querySelector('#quiz-choices'); 
+var timerElement = document.getElementById('timer'); 
 var confirmEl = document.querySelector('#confirm');
 var answerButtons = {
     Btn1: document.getElementById('Btn1'),
     Btn2: document.getElementById('Btn2'),
     Btn3: document.getElementById('Btn3'),
     Btn4: document.getElementById('Btn4'),
+
 };
 
 var secondsRemaining = 60; 
-
-
 var currentQuestionIndex = 0;
 
-
-
+// Functions
+// ** Cycles through code**
 function generatequestion() {
     var num = 0;
     quizElement.textContent = " "; 
-    // quizChoicesElement.innerHTML = "response "; 
+    // removeAttribute('id', '') // get rid of this later
     if(currentQuestionIndex >= quizQuestions.length) {
         var h2Element = document.createElement('h2');
         h2Element.textContent = 'End of the game';
@@ -58,59 +61,50 @@ function generatequestion() {
         val.textContent = quizQuestions[currentQuestionIndex].answers[num];
         num++;
     });
-    // for (var i = 0; i < currentQuestion.answer.length; i++) {
-        
-    //     var choiceNode = document.createElement("button");
-    //     choiceNode.setAttribute("class", "choice");
-    //     choiceNode.setAttribute("value", currentQuestion.answers[i]);
-    
-    //     choiceNode.textContent = i + 1 + ". " +  currentQuestion.answers[i];
-    
-    //     // attach click event listener to each choice
-    //     choiceNode.onclick = checkAnswer;
-        
-    //     // display on the page
-    //     quizChoicesElement.appendChild(choiceNode); 
-    // }
-    
-}
-
-
-function checkAnswer() {
-    if (this.value !== quizQuestions[currentQuestionIndex].answer){
-        confirmEl.textContent = ' ';
-        confirmEl.textContent = 'Correct';
-        
-    } else {
-        confirmEl.textContent = ' ';
-        confirmEl.textContent = 'Incorrect';  //uncaught
-    }
-    currentQuestionIndex++;
-    generatequestion();
 }
 
 
 
+
+// **Event Listeners**
 startQuiz.addEventListener('click', () => {
     quizcountdown();
     generatequestion();
+    startQuiz.style.display = 'none';
+    var unhide = document.querySelector('.hide');
+    unhide.classList.remove('hide');
 });
 
-quizChoicesElement.addEventListener('click', checkAnswer);
 
-// New function for buttons 
+
 Object.values(answerButtons).forEach(val => {
     val.addEventListener('click', (e) => {
         e.preventDefault();
 
         if(quizQuestions[currentQuestionIndex].answer == val.textContent){
             quizQuestions.splice(currentQuestionIndex,1);
+            console.log('correct');
+            var results = document.getElementById('answer-results');
+            results.textContent = 'Correct!';
+            results.style.fontSize = '40px';
+            results.style.textAlign = 'center';
+            setTimeout(()=> {
+                results.textContent = '';
 
-            generatequestion();
-
+            }, 1000); 
+            // generatequestion();
+            //Make either the btns hide immediately after all questions are answered
         }
         else{
             quizQuestions.splice(currentQuestionIndex,1);
+            var results = document.getElementById('answer-results');
+            results.textContent = 'Wrong!';
+            results.style.fontSize = '40px';
+            results.style.textAlign = 'center';
+            setTimeout(()=> {
+                results.textContent = '';
+
+            }, 1000); 
 
             secondsRemaining -=5;
 
@@ -118,6 +112,7 @@ Object.values(answerButtons).forEach(val => {
         }
     })
 })
+
 
 function quizcountdown() {
     var countDown = setInterval(function() {
@@ -130,5 +125,3 @@ function quizcountdown() {
        
     }, 1000);
 }
-
-

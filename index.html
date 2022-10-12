@@ -14,34 +14,37 @@
     
     <header>
         <h1 id="code-quiz">Code Quiz</h1>
+        <h2 id="timer">Seconds left: 60</h2>
     </header>
+      
+    <nav class="timer-container">
+        <button id="start-quiz"><h2>Start</h2></button>
+    </nav>
 
- <section class="timercount">
-    <h2 id="timer">Seconds Left: 60</h2> 
- </section>
+ <section class="quiz-container">
+    <div id="quiz-questions">
 
-<div class="button-container">
+    </div>
+    <div id="quiz-choices">
+
+    </div>
+
+</section>
+<div id="confirm"></div>
+
+
+<div class="hide button-container">
     <button id="Btn1">1</button>
     <button id="Btn2">2</button>
     <button id="Btn3">3</button>
     <button id="Btn4">4</button>
 </div>
 
+<hr>
+    <p id="answer-results">.</p>
 
-    <section class="quiz-container">
-        <div id="quiz-questions">
+    <!-- make end game element -->
 
-        </div>
-        <div id="quiz-choices">
-
-        </div>
-        <button id="start-quiz"><h2>Start</h2></button>
-    </section>
-    <div id="confirm"></div>
-
-    
-    
-    
     <!-- Created  the header and the start quiz button -->
     <!-- Will add a retry button -->
     <script src="./assets/script.js"></script>
