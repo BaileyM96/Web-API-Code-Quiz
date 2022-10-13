@@ -12,8 +12,8 @@ N/A uses the web browser to display the quiz
 
 ## Link
 
-## Screenshots
 
 ## License
 
-N/A
+## Screenshot
+![Web API quiz](https://user-images.githubusercontent.com/108101478/195506321-1650e47b-dcc8-4bf2-9829-92d2afbe6c0c.JPG)
