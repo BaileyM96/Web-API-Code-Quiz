@@ -12,14 +12,25 @@
 </head>
 <body>
     
+    
     <header>
         <h1 id="code-quiz">Code Quiz</h1>
         <h2 id="timer">Seconds left: 60</h2>
     </header>
       
-    <nav class="timer-container">
+    <!-- <nav class="timer-container">
         <button id="start-quiz"><h2>Start</h2></button>
-    </nav>
+    </nav> -->
+
+    <section class="intro">
+        <div id="start-screen">
+            <p>
+                Please answer the code quiz questions within the time limit. If you answer questions incorrectly your time will 
+                be penalized by 10 seconds. At the end of the game you will be able to see how many points you have earned, Good Luck!
+                <button id="start-quiz"><h2>Start</h2></button>
+            </p>
+        </div>
+ 
 
  <section class="quiz-container">
     <div id="quiz-questions">
@@ -42,6 +53,10 @@
 
 <hr>
     <p id="answer-results">.</p>
+
+    <section class="end-screen">
+        <div id="endgame"><h2>Test is over</h2></div>
+    </section>
 
     <!-- make end game element -->
 

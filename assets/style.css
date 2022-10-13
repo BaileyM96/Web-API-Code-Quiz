@@ -25,6 +25,17 @@ h2  {
     
 }
 
+
+#start-screen {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 21px;
+    padding: 25px;
+    text-align: center;
+}
+
+
 .quiz-container {
     display: flex;
     justify-content: center;
@@ -46,6 +57,7 @@ h2  {
 .timer-container {
     display: flex;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .hide {

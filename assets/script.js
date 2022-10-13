@@ -25,6 +25,7 @@ var quizQuestions = [
 
 
 var startQuiz = document.querySelector('#start-quiz'); 
+var quizIntro = document.querySelector('#start-screen');
 var quizElement = document.querySelector('#quiz-questions'); 
 var quizChoicesElement = document.querySelector('#quiz-choices'); 
 var timerElement = document.getElementById('timer'); 
@@ -38,10 +39,12 @@ var answerButtons = {
 };
 
 var secondsRemaining = 60; 
+var pointsEarned = 0; 
+var totalPointsEarned = 0;
 var currentQuestionIndex = 0;
 
+
 // Functions
-// ** Cycles through code**
 function generatequestion() {
     var num = 0;
     quizElement.textContent = " "; 
@@ -54,16 +57,14 @@ function generatequestion() {
     }
   
     var currentQuestion = quizQuestions[currentQuestionIndex];
-    var h2Element = document.createElement('h2'); //created a new var that creates a new element for h2
-    h2Element.textContent = currentQuestion.question; //the .question is to select the first question out of the array
+    var h2Element = document.createElement('h2'); 
+    h2Element.textContent = currentQuestion.question; 
     quizElement.appendChild(h2Element);
     Object.values(answerButtons).forEach(val => {
         val.textContent = quizQuestions[currentQuestionIndex].answers[num];
         num++;
     });
 }
-
-
 
 
 // **Event Listeners**
@@ -75,6 +76,10 @@ startQuiz.addEventListener('click', () => {
     unhide.classList.remove('hide');
 });
 
+quizIntro.addEventListener('click', ()=>{
+    quizIntro.style.display = 'none';
+})
+
 
 
 Object.values(answerButtons).forEach(val => {
@@ -83,7 +88,6 @@ Object.values(answerButtons).forEach(val => {
 
         if(quizQuestions[currentQuestionIndex].answer == val.textContent){
             quizQuestions.splice(currentQuestionIndex,1);
-            console.log('correct');
             var results = document.getElementById('answer-results');
             results.textContent = 'Correct!';
             results.style.fontSize = '40px';
@@ -92,7 +96,9 @@ Object.values(answerButtons).forEach(val => {
                 results.textContent = '';
 
             }, 1000); 
-            // generatequestion();
+            pointsEarned = 1;
+            console.log(pointsEarned);
+            generatequestion();
             //Make either the btns hide immediately after all questions are answered
         }
         else{
@@ -103,15 +109,17 @@ Object.values(answerButtons).forEach(val => {
             results.style.textAlign = 'center';
             setTimeout(()=> {
                 results.textContent = '';
+            
 
             }, 1000); 
 
-            secondsRemaining -=5;
+            secondsRemaining -=10;
 
             generatequestion();
         }
     })
 })
+
 
 
 function quizcountdown() {
